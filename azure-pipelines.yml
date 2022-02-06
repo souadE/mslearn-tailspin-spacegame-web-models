@@ -43,4 +43,10 @@ steps:
     allowPackageConflicts: true
   condition: succeeded()
 
-
+- task: NuGetCommand@2
+  displayName: 'Publish NuGet package'
+  inputs:
+    command: push
+    feedPublish: '$(System.TeamProject)/Tailspin.SpaceGame.Web.Models'
+    allowPackageConflicts: true
+  condition: succeeded()  
